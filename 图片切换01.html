@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="廖龙辉">
+    <title>图片切换</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .list {
+        list-style-type: none;
+        overflow: hidden;
+      }
+      li {
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-left: 42px;
+        margin-top: 10px;
+      }
+      .active {
+        border: 3px solid yellow;
+      }
+      li img {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./image/01.jfif" alt="bigImg" id="bigImg" width="500px" height="500px">
+    <ul class="list">
+      <li class="active">
+        <a href="javascript:void(0)"><img src="./image/01.jfif" alt="可爱头像01" class="smallImg"></a>
+      </li>
+      <li>
+        <a href="javascript:void(0)"><img src="./image/02.jfif" alt="可爱头像02" class="smallImg"></a>
+      </li>
+      <li>
+        <a href="javascript:void(0)"><img src="./image/03.jfif" alt="可爱头像03" class="smallImg"></a>
+      </li>
+      <li>
+        <a href="javascript:void(0)"><img src="./image/04.jfif" alt="可爱头像04" class="smallImg"></a>
+      </li>
+      <li>
+        <a href="javascript:void(0)"><img src="./image/05.jfif" alt="可爱头像05" class="smallImg"></a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      //1.获取事件源
+      let bigImg = document.getElementById("bigImg")
+      let smallImgs = document.getElementsByClassName("smallImg")
+
+      for(let i = 0; i < smallImgs.length; i++){
+        //添加事件(用于增添classname)
+        smallImgs[i].onmouseover = function(){
+          //除classname
+          for(let j = 0; j < smallImgs.length; j++){
+            smallImgs[j].parentNode.parentNode.setAttribute("class", "")
+          }
+          //给大图修改src
+          let smallImgSrc = this.getAttribute("src")
+          bigImg.setAttribute("src", smallImgSrc)
+          //添classname
+          this.parentNode.parentNode.setAttribute("class", "active")
+        }
+      }
+    </script>
+  </body>
+</html>
