@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        * {
+          padding: 0;
+          margin: 0;
+        }
+        #panel {
+          background-color: #fff;
+          border: 1px solid #ddd;
+          boder-radius: 6px;
+          width: 300px;
+          padding: 20px;
+          margin: 100px auto;
+        }
+        label {
+          cursor: pointer;
+        }
+        .panel-footer {
+          padding-top: 10px;
+          text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="panel">
+      <div class="panel-title">
+        <h3>音乐盒</h3>
+        <hr />
+      </div>
+      <div class="panel-content">
+        <label for="1"><input id='1' type="checkbox" name="" value="飘洋过海来看你" />飘洋过海来看你</label><br />
+        <label for="2"><input id='2' type="checkbox" name="" value="一眼万年" />一眼万年</label><br />
+        <label for="3"><input id='3' type="checkbox" name="" value="没那么简单" />没那么简单</label><br />
+        <label for="4"><input id='4' type="checkbox" name="" value="后来" />后来</label><br />
+        <label for="5"><input id='5' type="checkbox" name="" value="如果你要离去" />如果你要离去</label><br />
+        <label for="6"><input id='6' type="checkbox" name="" value="恋恋风尘" />恋恋风尘</label><br />
+        <label for="7"><input id='7' type="checkbox" name="" value="南山南" />南山南</label><br />
+        <label for="8"><input id='8' type="checkbox" name="" value="涛声依旧" />涛声依旧</label><br />
+        <label for="9"><input id='9' type="checkbox" name="" value="可惜不是你" />可惜不是你</label><br />
+      </div>
+      <div class="panel-footer">
+        <hr />
+        <button type="button" id="allSelect">全选</button>
+        <button type="button" id="cancelSelect">取消选中</button>
+        <button type="button" id="reverseSelect">反选</button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function $(id){
+        return typeof id === 'string' ? document.getElementById(id) : null
+      }
+      let inputs = document.getElementsByTagName('input')
+      //全选
+      $('allSelect').onclick = () => {
+        for(let i=0; i<inputs.length; i++){
+          inputs[i].checked = true
+        }
+      }
+      //取消选中
+      $('cancelSelect').onclick = () => {
+        for(let i=0; i<inputs.length; i++){
+          inputs[i].checked = false
+        }
+      }
+      //反选
+      $('reverseSelect').onclick = () => {
+        for(let i=0; i<inputs.length; i++){
+          inputs[i].checked = !inputs[i].checked
+        }
+      }
+    </script>
+  </body>
+</html>

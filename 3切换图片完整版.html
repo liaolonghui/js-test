@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        border: 1px solid #ccc;
+        width: 450px;
+        height: 40px;
+        padding-top: 455px;
+        background: url("./sexyWoman/01.jpg") no-repeat;
+      }
+      #box ul li {
+        display: inline-block;
+        margin-left: 35px;
+      }
+      #box ul li a img {
+        width: 40px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li id="item1" class="item">
+          <a href="#"><img src="./sexyWoman/01.jpg" alt=""></a>
+        </li>
+        <li id="item2" class="item">
+          <a href="#"><img src="./sexyWoman/02.jpg" alt=""></a>
+        </li>
+        <li id="item3" class="item">
+          <a href="#"><img src="./sexyWoman/03.jpg" alt=""></a>
+        </li>
+        <li id="item4" class="item">
+          <a href="#"><img src="./sexyWoman/04.jpg" alt=""></a>
+        </li>
+        <li id="item5" class="item">
+          <a href="#"><img src="./sexyWoman/05.jpg" alt=""></a>
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      function $(id){
+        return typeof id === 'string' ? document.getElementById(id) : null
+      }
+
+      //使用var时的一种解决方案（不使用let时）
+      var items = document.getElementsByClassName('item');
+      for(var i=0; i<items.length; i++){
+        var item = items[i];
+        item.id = i+1
+        items[i].onmouseover = function(){
+          $('box').style.background = `url("./sexyWoman/0${this.id}.jpg") no-repeat`
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示和隐藏图片</title>
+  </head>
+  <body>
+    <button id="btn" type="button" name="button">隐藏</button>
+    <br />
+    <img id="beauty" src="./sexyWoman/03.jpg" alt="sexy" />
+
+    <script type="text/javascript">
+      let beauty = document.getElementById("beauty")
+      let btn = document.getElementById("btn")
+      let isShow = true
+
+      btn.onclick = () => {
+          if(isShow){
+              beauty.style.display = 'none'
+              btn.innerHTML = "显示"
+              isShow = false
+          }else{
+              beauty.style.display = 'inline'
+              btn.innerHTML = "显示"
+              isShow = true
+          }
+      }
+    </script>
+  </body>
+</html>

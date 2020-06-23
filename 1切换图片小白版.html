@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        border: 1px solid #ccc;
+        width: 450px;
+        height: 40px;
+        padding-top: 455px;
+        background: url("./sexyWoman/01.jpg") no-repeat;
+      }
+      #box ul li {
+        display: inline-block;
+        margin-left: 35px;
+      }
+      #box ul li a img {
+        width: 40px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li id="item1">
+          <a href="#"><img src="./sexyWoman/01.jpg" alt=""></a>
+        </li>
+        <li id="item2">
+          <a href="#"><img src="./sexyWoman/02.jpg" alt=""></a>
+        </li>
+        <li id="item3">
+          <a href="#"><img src="./sexyWoman/03.jpg" alt=""></a>
+        </li>
+        <li id="item4">
+          <a href="#"><img src="./sexyWoman/04.jpg" alt=""></a>
+        </li>
+        <li id="item5">
+          <a href="#"><img src="./sexyWoman/05.jpg" alt=""></a>
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      let box = document.getElementById("box")
+      let item1 = document.getElementById("item1")
+      let item2 = document.getElementById("item2")
+      let item3 = document.getElementById("item3")
+      let item4 = document.getElementById("item4")
+      let item5 = document.getElementById("item5")
+
+      item1.onmouseover = function(){
+        box.style.background = "url('./sexyWoman/01.jpg') no-repeat"
+      }
+      item2.onmouseover = function(){
+        box.style.background = "url('./sexyWoman/02.jpg') no-repeat"
+      }
+      item3.onmouseover = function(){
+        box.style.background = "url('./sexyWoman/03.jpg') no-repeat"
+      }
+      item4.onmouseover = function(){
+        box.style.background = "url('./sexyWoman/04.jpg') no-repeat"
+      }
+      item5.onmouseover = function(){
+        box.style.background = "url('./sexyWoman/05.jpg') no-repeat"
+      }
+    </script>
+  </body>
+</html>

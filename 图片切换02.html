@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="liaolonghui">
+    <meta name="keywords" content="test">
+    <meta name="description" content="test js">
+    <title>图片切换</title>
+    <style media="screen">
+      button {
+        margin-top: 10px;
+        margin-left: 130px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="img" src="./image/01.jfif" alt="Image" width="500px" height="500px">
+    <br />
+    <button type="button" name="button" id="prev">上一张</button>
+    <button type="button" name="button" id="next">下一张</button>
+    <script type="text/javascript">
+      let img = document.getElementById("img")
+      let prev = document.getElementById("prev")
+      let next = document.getElementById("next")
+
+      let index = 1
+      prev.onclick = () => {
+        if(index === 1){
+          index = 5
+        } else {
+          index--
+        }
+        img.setAttribute("src", "./image/0"+index+".jfif")
+      }
+      next.onclick = () => {
+        if(index === 5){
+          index = 1
+        } else {
+          index++
+        }
+        img.setAttribute("src", "./image/0"+index+".jfif")
+      }
+    </script>
+  </body>
+</html>
