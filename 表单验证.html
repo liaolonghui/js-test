@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>表单验证(非正则实现方法)</title>
+    <style media="screen">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #prompt {
+        font-size: 12px;
+        color: darkgray;
+      }
+      #score {
+        border: 1px solid darkgray;
+      }
+      .right {
+        background: url('./boolean/right.jpg') no-repeat 5px center;
+        background-size: 15px 15px;
+        padding-left: 20px;
+        color: lightgreen !important;
+      }
+      .error {
+        background: url('./boolean/error.jpg') no-repeat 5px center;
+        background-size: 15px 15px;
+        padding-left: 20px;
+        color: red !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <label for="score">你的成绩：</label>
+      <input type="text" placeholder="请输入分数" id="score" />
+      <span id="prompt" class="">请输入你的成绩</span>
+
+      <script type="text/javascript">
+        function $(id){
+          return typeof id === 'string' ? document.getElementById(id) : null
+        }
+
+        //input输入框失去焦点
+        $('score').onblur = function(){
+          let value = parseFloat(this.value)
+          if(isNaN(value)){
+            //不是数字
+            $('prompt').innerHTML = '输入的成绩不正确'
+            $('prompt').setAttribute('class','error')     //也可以$('prompt').className = 'error'
+            this.style.borderColor = 'red'
+          }else if(value >= 0 && value <=100){
+            $('prompt').innerHTML = '输入的成绩正确'
+            $('prompt').setAttribute('class','right')
+            this.style.borderColor = 'lightgreen'
+          }else{
+            $('prompt').innerHTML = '请输入0-100之间的数字'
+            $('prompt').setAttribute('class','error')
+            this.style.borderColor = 'red'
+          }
+        }
+
+        //input输入框获取焦点
+        $('score').onfocus = function(){
+          $('prompt').innerHTML = '请输入你的成绩'
+          $('prompt').className = ''
+          this.style.borderColor = 'darkgray'
+          this.style.outline = 'none'
+          this.value = ''
+        }
+      </script>
+    </div>
+  </body>
+</html>

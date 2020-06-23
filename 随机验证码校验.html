@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>前端实现(实际开发由后端发送验证码再校验)</title>
+    <style media="screen">
+      #code {
+        width: 150px;
+        height: 150px;
+        background-color: #ddd;
+        padding: 10px;
+        line-height: 150px;
+        text-align: center;
+        font-size: 30px;
+        color: red;
+        font-weight: bold;
+      }
+      input {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="code">
+
+    </div>
+    <input type="text" name="" id="newCode" />
+    <input type="button" name="" id="validate" value="验证" />
+
+    <script type="text/javascript">
+      window.onload = function(){
+        //保存验证码
+        let code
+
+        let codeDiv = document.getElementById('code')
+        let newCodeInput = document.getElementById('newCode')
+        let validate = document.getElementById('validate')
+
+        //加载页面获取对应的验证码
+        createCode()
+
+        //获取min到max之间的随机整数
+        function random(max,min){
+          return Math.floor(Math.random()*(max-min)+min)
+        }
+
+        function createCode(){
+          code = ''
+          let codeLength = 4
+          let randomCode = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E',
+                'F','G','H','I','J','K','L','M','N','O','P','Q','R',
+                'S','T','U','V','W','X','Y','Z']
+          for(let i=0; i<codeLength; i++){
+            let index = random(0,36)
+            code += randomCode[index]
+          }
+          //code
+          codeDiv.innerHTML = code
+        }
+
+        //验证校验
+        validate.onclick = function(){
+          let newCode = newCodeInput.value.toUpperCase()
+          if(newCode === code){
+            //验证成功
+            window.location.href = 'https://www.apeland.cn'
+          }else{
+            //验证失败
+            alert('验证码不正确，请重新输入！')
+            newCodeInput.value = '';
+            //重新获取验证码
+            createCode()
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

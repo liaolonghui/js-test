@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>position子绝父相</title>
+    <style media="screen">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #wrap {
+        position: relative;
+      }
+      #wrap .item {
+        width: 248px;
+        height: 360px;
+        font-size: 13px;
+      }
+      #wrap .item .title {
+        width: 248px;
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        margin-left: 50px;
+      }
+      #wrap .item .price {
+        color: #ff6700;
+        font-size: 18px;
+        fon-weight: bold;
+        margin-left: 50px;
+      }
+      .imgContainer {
+        width: 248px;
+        display:table-cell;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cols">
+      <button type="button" name="button">3列</button>
+      <button type="button" name="button">4列</button>
+      <button type="button" name="button">5列</button>
+    </div>
+    <div id="wrap">
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/01.webp" alt="">
+        </div>
+        <p class="title">01号商品</p>
+        <p class="price">￥69</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/02.webp" alt="">
+        </div>
+        <p class="title">02号商品</p>
+        <p class="price">￥59</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/03.webp" alt="">
+        </div>
+        <p class="title">03号商品</p>
+        <p class="price">￥79</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/04.webp" alt="">
+        </div>
+        <p class="title">04号商品</p>
+        <p class="price">￥169</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/05.webp" alt="">
+        </div>
+        <p class="title">05号商品</p>
+        <p class="price">￥49</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/06.webp" alt="">
+        </div>
+        <p class="title">06号商品</p>
+        <p class="price">￥119</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/07.webp" alt="">
+        </div>
+        <p class="title">07号商品</p>
+        <p class="price">￥249</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/08.webp" alt="">
+        </div>
+        <p class="title">08号商品</p>
+        <p class="price">￥449</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/09.webp" alt="">
+        </div>
+        <p class="title">09号商品</p>
+        <p class="price">￥169</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/10.webp" alt="">
+        </div>
+        <p class="title">10号商品</p>
+        <p class="price">￥449</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/11.webp" alt="">
+        </div>
+        <p class="title">11号商品</p>
+        <p class="price">￥559</p>
+      </div>
+      <div class="item">
+        <div class="imgContainer">
+          <img src="./taobao/12.webp" alt="">
+        </div>
+        <p class="title">12号商品</p>
+        <p class="price">￥699</p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      let btns = document.getElementsByTagName('button')
+      let items = document.getElementsByClassName('item')
+
+      btns[0].onclick = function(){
+        LLH_flex(3)
+      }
+      btns[1].onclick = function(){
+        LLH_flex(4)
+      }
+      btns[2].onclick = function(){
+        LLH_flex(5)
+      }
+
+      function LLH_flex(colsNum){
+        //第0行第0列  top:0*h   left:0*w
+        //第0行第1列  top:0*h   left:1*w
+        //第0行第2列  top:0*h   left:2*w
+        //第1行第0列  top:1*h   left:0*w
+        //第1行第1列  top:1*h   left:1*w
+        //第1行第2列  top:1*h   left:2*w
+        //规律：top对应行     left对应列
+        for(let i=0; i<items.length; i++){
+          //求每个盒子占的行数和列数
+          let row = parseInt(i/colsNum)
+          let col = parseInt(i%colsNum)
+          items[i].style.position = 'absolute'
+          items[i].style.top = (row*items[i].offsetHeight)+'px'
+          items[i].style.left = (col*items[i].offsetWidth)+'px'
+        }
+      }
+    </script>
+  </body>
+</html>
