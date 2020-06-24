@@ -54,7 +54,7 @@
       //使用var时的一种解决方案（不使用let时）
       var items = document.getElementsByClassName('item');
       for(var i=0; i<items.length; i++){
-        var item = items[i];
+        var item = items[i];             //items[i] = i+1
         item.id = i+1
         items[i].onmouseover = function(){
           $('box').style.background = `url("./sexyWoman/0${this.id}.jpg") no-repeat`
